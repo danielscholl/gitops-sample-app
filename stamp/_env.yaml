@@ -1,0 +1,13 @@
+apiVersion: builtin
+kind: PatchTransformer
+metadata:
+  name: helm-releases-env-transformer
+patch: |-
+  - op: replace
+    path: /spec/values/environment
+    value: production
+  - op: replace
+    path: /spec/values/region
+    value: eun
+target:
+  kind: HelmRelease
