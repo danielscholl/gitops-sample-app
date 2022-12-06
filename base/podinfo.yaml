@@ -12,7 +12,6 @@ spec:
         kind: HelmRepository
         name: podinfo
         namespace: sample-stamp
-      version: '>6.2.23'
   interval: 5m
   install:
     remediation:
