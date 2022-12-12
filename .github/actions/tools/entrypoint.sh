@@ -2,13 +2,13 @@
 
 set -eu
 
-YQ_VERSION="3.4.1"
-KUSTOMIZE_VERSION="3.9.2"
-KUBEVAL_VERSION="0.15.0"
+YQ_VERSION="4.30.5"
+KUSTOMIZE_VERSION="4.5.7"
+KUBECONFORM_VERSION="0.5.0"
 
 mkdir -p $GITHUB_WORKSPACE/bin
 
-curl -sL https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 -o yq
+curl -sL https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64 -o yq
 
 cp ./yq $GITHUB_WORKSPACE/bin
 chmod +x $GITHUB_WORKSPACE/bin/yq
@@ -20,11 +20,11 @@ tar xz
 cp ./kustomize $GITHUB_WORKSPACE/bin
 chmod +x $GITHUB_WORKSPACE/bin/kustomize
 
-curl -sL https://github.com/instrumenta/kubeval/releases/download/${KUBEVAL_VERSION}/kubeval-linux-amd64.tar.gz | \
+curl -sL https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz | \
 tar xz
 
-cp ./kubeval $GITHUB_WORKSPACE/bin
-chmod +x $GITHUB_WORKSPACE/bin/kubeval
+cp ./kubeconform $GITHUB_WORKSPACE/bin
+chmod +x $GITHUB_WORKSPACE/bin/kubeconform
 
 echo "$GITHUB_WORKSPACE/bin" >> $GITHUB_PATH
 echo "$RUNNER_WORKSPACE/$(basename $GITHUB_REPOSITORY)/bin" >> $GITHUB_PATH
