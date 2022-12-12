@@ -4,14 +4,14 @@ metadata:
   name: podinfo
 spec:
   releaseName: podinfo
-  serviceAccountName: sample-stamp
+  serviceAccountName: sample-app
   chart:
     spec:
       chart: podinfo
       sourceRef:
         kind: HelmRepository
         name: podinfo
-        namespace: sample-stamp
+        namespace: sample-app
   interval: 5m
   install:
     remediation:
